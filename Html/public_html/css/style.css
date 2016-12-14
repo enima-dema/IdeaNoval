@@ -1,0 +1,143 @@
+*{
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1{
+    margin: 0;
+}
+
+h2{
+
+}
+
+h3{
+    margin : 0;
+}
+.pts{
+
+}
+
+.comment{
+
+}
+
+.set_flex{
+    display: flex;
+}
+
+.navbar-main{
+    font-weight: bold;
+}
+.navbar-second{
+    color: graytext;
+    white-space: nowrap;
+}
+
+.panel-heading-idea{
+
+}
+.panel-footer-idea{
+
+}
+.panel-default > .panel-heading-sug{
+    background-color: white;
+    padding: 5px;
+    background-image: none;
+    border-bottom: none;
+}
+.panel-default > .panel-footer-sug{
+    background-color: white;
+    padding: 5px;
+    background-image: none;
+}
+
+/*Permet de change la couleur de la navbar'*/
+.navbar{
+}
+
+.footer{
+    margin-bottom: 0px;
+}
+/*Change la couleur du font dans le menu*/
+.navbar-default .navbar-nav > li > a {
+}
+
+/*Décris ce qu'il se passe lorsque la souris de l'utilisateur passe au dessus des objets du menu'*/
+.navbar-default .navbar-nav li a:hover{
+}
+
+/*Pour redéfinir l'"active"*/
+.navbar-default .active a {
+}
+
+/*Pour redéfinir la brand*/
+.navbar-default .navbar-brand {
+}
+
+/*Afin de center les objets du menu*/
+.navbar .navbar-nav {
+}
+
+/*Centre les objets du menu lorsqu'il est "collapsé"*/
+.navbar .navbar-collapse {
+}
+
+/*Un enfant sur deux des tableaux de la pages seront colorés en marron. Dans un but de cohérence graphique l'écriture est en blanc,
+afin d'être similaire au menu'*/
+tr:nth-child(even) {
+}
+
+/*Les objets de la classe "classement" verront leurs fonds changer de couleur lorsque la souris de l'utilisateur passera dessus'*/
+.classement:hover{
+}
+
+/*Classe permettant de centrer ses enfants*/
+.center{
+    text-align: center;
+    margin: auto;
+}
+
+.align-right{
+    text-align: right;
+    margin-left: auto;
+}
+
+/*Afin de laisser plus d'espace entre le panel et le reste de la page*/
+.panel{
+}
+
+.panel_idea{
+    padding: 15px;
+}
+
+.panel_sug{
+    padding : 10px;
+    margin-bottom: 15px;
+}
+
+/*Relatif à l'article, afin de mettre en avant un contenu*/
+.special-panel{
+}
+
+/*Classe donnée aux boutons afin que leur taille soit automatiquement celle du texte 
+(les boutons bootstrap prennent toute la place par défaut)*/
+.btn-size{
+}
+
+/*Permet de centrer les objets porteurs de la classe si l'écran passe en dessous d'une largeur de 992px (soit md pour bootstrap)*/
+@media (max-width: 992px) {
+    .center-btn {
+    }
+}
+
+/*Permet de bien séparer les colonnes pour plus de visibilité*/
+.space-col{
+}
+
+/*Divider pour le menu*/
+.divider-vertical {
+    height: 50px;
+    margin: 0 9px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
