@@ -14,19 +14,10 @@ user_type TINYINT,
 PRIMARY KEY (id_member)
 );
 
-CREATE TABLE comment(
-id_comment INT NOT NULL AUTO_INCREMENT,
-content_comment BLOB(500),
-date_post DATETIME,
-report_status_c BOOLEAN,
-active_status_c BOOLEAN,
-id_member INT NOT NULL,
-FOREIGN KEY id_member
-REFERENCES member (id_member),
-id_idea INT NOT NULL,
-FOREIGN KEY id_idea
-REFERENCES idea (id_idea),
-PRIMARY KEY(id_comments)
+CREATE TABLE theme (
+id_theme INT NOT NULL AUTO_INCREMENT,
+label_theme VARCHAR(50),
+PRIMARY KEY(id_theme)
 );
 
 CREATE TABLE idea (
@@ -45,13 +36,28 @@ REFERENCES theme(id_theme),
 PRIMARY KEY(id_idea)
 );
 
+CREATE TABLE comment(
+id_comment INT NOT NULL AUTO_INCREMENT,
+content_comment BLOB(500),
+date_post DATETIME,
+report_status_c BOOLEAN,
+active_status_c BOOLEAN,
+id_member INT NOT NULL,
+FOREIGN KEY (id_member)
+REFERENCES member (id_member),
+id_idea INT NOT NULL,
+FOREIGN KEY (id_idea)
+REFERENCES idea (id_idea),
+PRIMARY KEY(id_comment)
+);
+
 CREATE TABLE vote(
 vote_top_flop SMALLINT(2),
 id_member INT NOT NULL,
-FOREIGN KEY id_member
+FOREIGN KEY (id_member)
 REFERENCES member (id_member),
 id_idea INT NOT NULL,
-FOREIGN KEY id_idea
+FOREIGN KEY (id_idea)
 REFERENCES idea (id_idea),
 PRIMARY KEY (id_member,id_idea)
 );
@@ -65,22 +71,28 @@ REFERENCES idea(id_idea),
 PRIMARY KEY(id_s_option)
 );
 
-CREATE TABLE theme (
-id_theme INT NOT NULL AUTO_INCREMENT,
-label_theme VARCHAR(50),
-PRIMARY KEY(id_theme)
-);
-
 CREATE TABLE answer(
 id_answer INT NOT NULL AUTO_INCREMENT,
 label_other VARCHAR(100),
+id_s_option INT NOT NULL,
+id_member INT NOT NULL,
+FOREIGN KEY (id_member)
+REFERENCES member(id_member),
+FOREIGN KEY (id_s_option)
+REFERENCES surveyoption(id_s_option),
 PRIMARY KEY(id_answer)
 );
 
 CREATE TABLE alert (
 id_alert INT NOT NULL AUTO_INCREMENT,
 date_alert DATETIME,
-PRIMARY KEY(id_alert);
+id_comment INT NOT NULL,
+FOREIGN KEY (id_comment)
+REFERENCES comment(id_comment),
+id_idea INT NOT NULL,
+FOREIGN KEY (id_idea)
+REFERENCES idea(id_idea),
+PRIMARY KEY(id_alert)
 );
 
 CREATE TABLE picture (
