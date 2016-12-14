@@ -35,14 +35,19 @@ CREATE TABLE idea (
 	delay_idea INT,
 	date_end_vote_i DATE,
 	active_status_i BOOLEAN,
-	type_idea TINYINT
+	type_idea TINYINT,
+	id_theme INT NOT NULL,
+	FOREIGN KEY (id_theme)
+	REFERENCES theme(id_theme),
 	PRIMARY KEY(id_idea)
 );
 
 CREATE TABLE vote(
-vote_top_flop TINYINT(1),
+vote_top_flop SMALLINT(2),
+id_member INT NOT NULL,
 FOREIGN KEY id_member
 REFERENCES member (id_member),
+id_idea INT NOT NULL,
 FOREIGN KEY id_idea
 REFERENCES idea (id_idea),
 PRIMARY KEY (id_member,id_idea)
@@ -65,5 +70,23 @@ PRIMARY KEY(id_theme)
 
 CREATE TABLE answer(
 id_answer INT NOT NULL AUTO_INCREMENT,
-
+label_other VARCHAR(100),
+PRIMARY KEY(id_answer)
 );
+
+CREATE TABLE alert (
+id_alert INT NOT NULL AUTO_INCREMENT,
+date_alert DATETIME,
+PRIMARY KEY(id_alert);
+);
+
+CREATE TABLE picture (
+id_picture INT NOT NULL AUTO_INCREMENT,
+caption_picture VARCHAR(50),
+url_picture VARCHAR(255),
+id_idea INT NOT NULL,
+FOREIGN KEY(id_idea)
+REFERENCES idea(id_idea),
+PRIMARY KEY (id_picture)
+);
+
