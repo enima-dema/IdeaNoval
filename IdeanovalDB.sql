@@ -28,27 +28,24 @@ PRIMARY KEY(id_comments)
 );
 
 CREATE TABLE idea (
-id_idea INT NOT NULL AUTO_INCREMENT,
-title_idea VARCHAR(50),
-desc_idea BLOB(1000),
-date_post_idea DATE,
-delay_idea INT,
-date_end_vote_i DATE,
-active_status_i BOOLEAN,
-type_idea TINYINT,
-id_member,
-FOREIGN KEY (id_member)
-REFERENCES member(id_member),
-id_theme INT NOT NULL,
-FOREIGN KEY (id_theme)
-REFERENCES member(id_theme),
-PRIMARY KEY(id_idea)
+	id_idea INT NOT NULL AUTO_INCREMENT,
+	title_idea VARCHAR(50),
+	desc_idea BLOB(1000),
+	date_post_idea DATE,
+	delay_idea INT,
+	date_end_vote_i DATE,
+	active_status_i BOOLEAN,
+	type_idea TINYINT
+	PRIMARY KEY(id_idea)
 );
 
-CREATE TABLE theme (
-id_theme INT NOT NULL AUTO_INCREMENT,
-label_theme VARCHAR(50),
-PRIMARY KEY(id_theme)
+CREATE TABLE vote(
+vote_top_flop TINYINT(1),
+FOREIGN KEY id_member
+REFERENCES member (id_member),
+FOREIGN KEY id_idea
+REFERENCES idea (id_idea),
+PRIMARY KEY (id_member,id_idea)
 );
 
 CREATE TABLE surveyoption(
