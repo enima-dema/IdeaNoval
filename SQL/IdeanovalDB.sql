@@ -9,37 +9,40 @@ firstname VARCHAR(100),
 email VARCHAR(200),
 password VARCHAR(30),
 nickname VARCHAR(100),
-is_active BOOLEAN,
+active_status_m BOOLEAN,
 user_type TINYINT,
 PRIMARY KEY (id_member)
 );
 
-CREATE TABLE comments(
-id_comments INT NOT NULL AUTO_INCREMENT,
-content BLOB(500),
+CREATE TABLE comment(
+id_comment INT NOT NULL AUTO_INCREMENT,
+content_comment BLOB(500),
 date_post DATETIME,
-is_report BOOLEAN,
-is_active BOOLEAN,
+report_status_c BOOLEAN,
+active_status_c BOOLEAN,
+id_member INT NOT NULL,
 FOREIGN KEY id_member
 REFERENCES member (id_member),
+id_idea INT NOT NULL,
 FOREIGN KEY id_idea
 REFERENCES idea (id_idea),
 PRIMARY KEY(id_comments)
 );
 
 CREATE TABLE idea (
-	id_idea INT NOT NULL AUTO_INCREMENT,
-	title_idea VARCHAR(50),
-	desc_idea BLOB(1000),
-	date_post_idea DATE,
-	delay_idea INT,
-	date_end_vote_i DATE,
-	active_status_i BOOLEAN,
-	type_idea TINYINT,
-	id_theme INT NOT NULL,
-	FOREIGN KEY (id_theme)
-	REFERENCES theme(id_theme),
-	PRIMARY KEY(id_idea)
+id_idea INT NOT NULL AUTO_INCREMENT,
+title_idea VARCHAR(50),
+desc_idea BLOB(1000),
+date_post_idea DATE,
+delay_idea INT,
+date_end_vote_i DATE,
+active_status_i BOOLEAN,
+report_status_i BOOLEAN,
+type_idea TINYINT,
+id_theme INT NOT NULL,
+FOREIGN KEY (id_theme)
+REFERENCES theme(id_theme),
+PRIMARY KEY(id_idea)
 );
 
 CREATE TABLE vote(
