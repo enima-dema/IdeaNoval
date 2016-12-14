@@ -57,6 +57,12 @@ REFERENCES idea(id_idea),
 PRIMARY KEY(id_s_option)
 );
 
+CREATE TABLE theme (
+id_theme INT NOT NULL AUTO_INCREMENT,
+label_theme VARCHAR(50),
+PRIMARY KEY(id_theme)
+);
+
 CREATE TABLE answer(
 id_answer INT NOT NULL AUTO_INCREMENT,
 
