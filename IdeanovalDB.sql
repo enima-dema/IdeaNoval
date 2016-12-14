@@ -50,3 +50,17 @@ id_theme INT NOT NULL AUTO_INCREMENT,
 label_theme VARCHAR(50),
 PRIMARY KEY(id_theme)
 );
+
+CREATE TABLE surveyoption(
+id_s_option INT NOT NULL AUTO_INCREMENT,
+label_s_option VARCHAR(150),
+id_idea INT NOT NULL,
+FOREIGN KEY(id_idea)
+REFERENCES idea(id_idea),
+PRIMARY KEY(id_s_option)
+);
+
+CREATE TABLE answer(
+id_answer INT NOT NULL AUTO_INCREMENT,
+
+);
